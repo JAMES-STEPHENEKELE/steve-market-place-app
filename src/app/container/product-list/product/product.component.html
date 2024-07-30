@@ -1,0 +1,24 @@
+<!-- <div class="ekart--product--item" *ngFor="let list of products" [ngStyle]="{backgroundColor: '#E2E2E2'}" >
+</div> -->
+<div class="ekart--product--item">
+
+<div class="ekart-wishlist-sale-container">
+  <div class="ekart--add--to--wishlist">
+    <fa-icon [icon]="hearts"></fa-icon>
+  </div>
+  <div class="ekart-on-sale-tag" *ngIf="product.discountPrice">{{(100- (product.discountPrice / product.price * 100)).toFixed(2)}}</div>
+</div>
+<div class="ekart--product--image">
+    <img [src]="product.imageURL"  class="ekart--product--image">
+</div>
+<div class="ekart--add--to--price">
+    #{{product.price}}
+</div>
+<div class="ekart--product--name">{{product.name}}</div>
+<div class="ekart--product--category">{{product.gender}} . {{product.category}} . {{product.brand}}</div>
+<div class="ekart--product--available-colors">{{product.color.length}} Colors . Best Seller</div>
+<div
+class="ekart--products--avaliavility" [ngStyle]="{fontWeight: 'bold', color: product.is_in_inventory? 'green': 'blue'}">
+<!-- we ngStyle is an attribute directives is to set inline css dynamically on html using typescript expression -->
+  {{product.is_in_inventory?'Stock Is Available': 'Stock Is Not available'}}
+</div>
